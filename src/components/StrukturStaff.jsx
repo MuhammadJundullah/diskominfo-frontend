@@ -4,16 +4,15 @@ import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "@react-spring/web";
 
 function StrukturStaff() {
-  const url = "http://localhost:8000/api/staff";
-  const [staff, setStaff] = useState([]); // Menyimpan data staff
-  const [loading, setLoading] = useState(true); // Menyimpan status loading
-  const [error, setError] = useState(null); // Menyimpan error jika ada
-  const [inView, setInView] = useState(false);
+  const url = `https://api-diskominfo-lhokseumawe-prod.up.railway.app/api/staff`;
+  const [staff, setStaff] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Intersection Observer hook
   const { ref, inView: isInView } = useInView({
-    triggerOnce: true, // Trigger hanya sekali
-    threshold: 0.3, // Persentase elemen yang masuk ke dalam viewport
+    triggerOnce: true,
+    threshold: 0.3,
   });
 
   const divAnimation = useSpring({
@@ -27,20 +26,19 @@ function StrukturStaff() {
     axios
       .get(url)
       .then((response) => {
-        // Mengambil data dari response.data.data
         if (response.data.status === "success") {
-          setStaff(response.data.data); // Menyimpan data staff ke state
+          setStaff(response.data.data);
         }
-        setLoading(false); // Menandakan bahwa loading sudah selesai
+        setLoading(false);
       })
       .catch((error) => {
-        setError(error.message); // Menangani error
-        setLoading(false); // Menandakan bahwa loading sudah selesai
+        setError(error.message);
+        setLoading(false);
       });
-  }, []); // Dependency array kosong, artinya hanya dijalankan sekali saat komponen mount
+  }, []);
 
-  if (loading) return <p>Loading...</p>; // Tampilkan loading jika data sedang diambil
-  if (error) return <p>Error: {error}</p>; // Tampilkan error jika ada
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
     <div className="hero min-h-screen bg-white py-32" id="tentang">
       <div className="hero-content flex-col lg:flex-row-reverse text-black">
@@ -118,7 +116,7 @@ function StrukturStaff() {
                   <img
                     alt={member.nama} // Gantilah dengan nama staff atau informasi lainnya
                     // src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" // Gantilah dengan URL foto jika ada
-                    src={`http://localhost:8000${member.foto}`}
+                    src={`https://api-diskominfo-lhokseumawe-prod.up.railway.app/${member.foto}`}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
@@ -151,8 +149,6 @@ function StrukturStaff() {
 
 export default StrukturStaff;
 
-
-
 //  <div className="w-screen-lg px-4 py-8 sm:px-6 sm:py-12 lg:px-8 bg-gray-100">
 //    <div className="max-w-3xl lg:mx-48 text-gray-700">
 //      <span className="flex items-center">
@@ -162,5 +158,4 @@ export default StrukturStaff;
 //      <h1 className="sm:text-5xl font-bold text-2xl">Pimpinan</h1>
 //    </div>
 
-  
 //  </div>;
