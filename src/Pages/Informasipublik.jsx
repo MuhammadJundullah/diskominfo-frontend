@@ -14,7 +14,8 @@ function Informasipublik() {
     );
   };
 
-  const url = "http://localhost:8000/api/informasi-publik";
+  const url =
+    "https://api-diskominfo-lhokseumawe-prod.up.railway.app/api/informasi-publik";
 
   useEffect(() => {
     axios
