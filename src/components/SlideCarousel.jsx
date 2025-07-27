@@ -2,7 +2,13 @@ function SlideCarousel() {
   return (
     <div className="carousel w-full">
       <div id="slide1" className="carousel-item relative w-full">
-        <video src="/media/hero.mp4" className="w-full" autoPlay loop muted />
+        <video
+          src="https://res.cloudinary.com/dislphwb0/video/upload/v1753611511/hero_qxlotu.mp4"
+          className="w-full"
+          autoPlay
+          loop
+          muted
+        />
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
           <a href="#slide1" className="btn btn-circle">
             ❮
@@ -37,7 +43,13 @@ function SlideCarousel() {
         </div>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
-        <video src="/media/hero2.webm" className="w-full" autoPlay loop muted />
+        <video
+          src="https://res.cloudinary.com/dislphwb0/video/upload/v1753611273/hero2_y8sr6l.webm"
+          className="w-full"
+          autoPlay
+          loop
+          muted
+        />
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
           <a href="#slide1" className="btn btn-circle">
             ❮
