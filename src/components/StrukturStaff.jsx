@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "@react-spring/web";
@@ -35,7 +35,7 @@ function StrukturStaff() {
         setError(error.message);
         setLoading(false);
       });
-  }, []);
+  }, [url]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;

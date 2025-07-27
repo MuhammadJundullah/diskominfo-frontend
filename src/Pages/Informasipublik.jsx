@@ -8,12 +8,6 @@ function Informasipublik() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleDeleteSuccess = () => {
-    console.log(
-      "Data berhasil dihapus, lakukan refresh data atau tindakan lain."
-    );
-  };
-
   const url =
     "https://api-diskominfo-lhokseumawe-prod.up.railway.app/api/informasi-publik";
 
@@ -84,7 +78,7 @@ function Informasipublik() {
                   {member.ukuran}
                 </td> */}
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                  <a href={member.url} target="_blank">
+                  <a href={member.url} target="_blank" rel="noreferrer">
                     Download
                   </a>
                 </td>

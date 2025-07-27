@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer"; 
+import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "@react-spring/web";
 import "../App.css";
 
 function Tentang() {
-  const [inView, setInView] = useState(false);
-
   // Intersection Observer hook
   const { ref, inView: isInView } = useInView({
     triggerOnce: true, // Trigger hanya sekali
